@@ -5,7 +5,7 @@ using UnityEngine;
 public class BallBouncing : MonoBehaviour
 {
     public Vector2 direction;
-    public float speed = 0.01f;
+    public float speed = 1f;
 
 
     // Start is called before the first frame update
@@ -19,6 +19,7 @@ public class BallBouncing : MonoBehaviour
     void Update()
     {
         move();
+
         Vector2 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
         checkFlipHorizontal(screenPosition);
         checkFlipVertical(screenPosition);
@@ -27,7 +28,7 @@ public class BallBouncing : MonoBehaviour
     void move()
     {
         Vector2 position = transform.position;
-        position += direction * speed;
+        position += direction * speed * Time.deltaTime;
         transform.position = position;
     }
 
