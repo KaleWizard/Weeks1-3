@@ -13,6 +13,7 @@ public class TankBarrel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.up = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        Vector2 dir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        transform.up = dir;
     }
 }
