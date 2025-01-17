@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BallBouncing : MonoBehaviour
 {
     public Vector2 direction;
     public float speed = 1f;
 
+    public float scale = 1f;
+
+    public Transform topLeft;
+    public Transform bottomRight;
 
     // Start is called before the first frame update
     void Start()
@@ -20,9 +25,39 @@ public class BallBouncing : MonoBehaviour
     {
         move();
 
-        Vector2 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
-        checkFlipHorizontal(screenPosition);
-        checkFlipVertical(screenPosition);
+        Vector2 positionTL = Camera.main.WorldToScreenPoint(topLeft.position);
+        Vector2 positionBR = Camera.main.WorldToScreenPoint(bottomRight.position);
+        checkFlipHorizontal(positionTL.x, positionBR.x);
+        checkFlipVertical(positionTL.y, positionBR.y);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+            direction.Normalize();
+            transform.position = Vector3.zero;
+        }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            scale += 0.1f;
+            ResetScale();
+        }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            scale -= 0.1f;
+            ResetScale();
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            speed += 1f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            speed -= 1f;
+        }
     }
 
     void move()
@@ -32,19 +67,24 @@ public class BallBouncing : MonoBehaviour
         transform.position = position;
     }
 
-    void checkFlipHorizontal(Vector2 screenPosition)
+    void checkFlipHorizontal(float left, float right)
     {
-        if ((screenPosition.x < 0 && direction.x < 0) || (screenPosition.x > Screen.width && direction.x > 0))
+        if ((left < 0 && direction.x < 0) || (right > Screen.width && direction.x > 0))
         {
             direction.x *= -1;
         }
     }
 
-    void checkFlipVertical(Vector2 screenPosition)
+    void checkFlipVertical(float top, float bottom)
     {
-        if ((screenPosition.y < 0 && direction.y < 0) || (screenPosition.y > Screen.height && direction.y > 0))
+        if ((bottom < 0 && direction.y < 0) || (top > Screen.height && direction.y > 0))
         {
             direction.y *= -1;
         }
+    }
+
+    void ResetScale()
+    {
+        transform.localScale = Vector2.one * scale;
     }
 }
