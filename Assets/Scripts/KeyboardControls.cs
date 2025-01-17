@@ -7,6 +7,8 @@ public class KeyboardControls : MonoBehaviour
     public Vector3 direction;
     public float speed = 1f;
 
+    bool isFlipped;
+
     public Transform topLeft;
     public Transform bottomRight;
 
@@ -15,6 +17,7 @@ public class KeyboardControls : MonoBehaviour
     {
         direction = Vector3.zero;
         direction.Normalize();
+        isFlipped = false;
     }
 
     // Update is called once per frame
@@ -34,6 +37,16 @@ public class KeyboardControls : MonoBehaviour
         direction.y = Input.GetAxisRaw("Vertical") * speed * Time.deltaTime;
         direction.Normalize();
         transform.position = transform.position + direction * speed * Time.deltaTime;
+
+        if (direction.x > 0 && isFlipped)
+        {
+            isFlipped = false;
+            transform.localScale = Vector3.one;
+        } else if (direction.x < 0 && !isFlipped)
+        {
+            isFlipped = true;
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
     }
 
     void checkClampHorizontal(float left, float right)
