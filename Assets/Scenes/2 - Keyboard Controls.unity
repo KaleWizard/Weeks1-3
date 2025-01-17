@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 1136307071}
   - component: {fileID: 1136307073}
   m_Layer: 0
-  m_Name: Ball
+  m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -243,7 +243,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -280,12 +280,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1136307070}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f762660ec97dfa4cb9d1842c308bfc6, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d039f174bbebab45a3a5bd8ab6ae335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0}
-  speed: 5
-  scale: 1
+  direction: {x: 0, y: 0, z: 0}
+  speed: 10
   topLeft: {fileID: 826176691}
   bottomRight: {fileID: 124350280}
 --- !u!1 &1421994999
