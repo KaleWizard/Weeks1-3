@@ -277,10 +277,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curve:
-    serializedVersion: 2
     m_Curve:
-    - serializedVersion: 3
-      time: 0.011235416
+    - time: 0.011235416
       value: 0.007719934
       inSlope: 0
       outSlope: 0
@@ -288,8 +286,7 @@ MonoBehaviour:
       weightedMode: 0
       inWeight: 0
       outWeight: 0
-    - serializedVersion: 3
-      time: 0.19934142
+    - time: 0.19934142
       value: 0.65832025
       inSlope: 4.6458497
       outSlope: 4.6458497
@@ -297,8 +294,7 @@ MonoBehaviour:
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.48288935
+    - time: 0.48288935
       value: 0.4174984
       inSlope: 11.762046
       outSlope: 11.762046
@@ -306,8 +302,7 @@ MonoBehaviour:
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.036436867
-    - serializedVersion: 3
-      time: 0.86682683
+    - time: 0.86682683
       value: 0.43432596
       inSlope: 1.4489031
       outSlope: 1.4489031
@@ -315,8 +310,7 @@ MonoBehaviour:
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
+    - time: 1
       value: 1
       inSlope: 0
       outSlope: 0
